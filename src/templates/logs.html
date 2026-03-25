@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Logs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style type="text/css">
+                /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        header .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        header button {
+            background-color: #ffcc00;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        header button:hover {
+            background-color: #e6b800;
+        }
+
+        .logs-container {
+            padding: 2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1em;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="user-info">
+            <h2>{{username}}'s Transaction Logs</h2>
+        </div>
+        <button onclick="generatePDF()" >Generate PDF</button>
+        <button onclick="logout()">Logout</button>
+    </header>
+    <div class="logs-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#transactions}}
+                <tr>
+                    <td>{{date}}</td>
+                    <td>{{amount}}</td>
+                    <td>{{type}}</td>
+                </tr>
+                {{/transactions}}
+            </tbody>
+        </table>
+        
+    </div>
+    <script>
+        function logout() {
+            window.location.href = '/logout';
+        }
+
+        function generatePDF() {
+            window.location.href = '/download-logs';
+        }
+    </script>
+</body>
+</html>
