@@ -18,10 +18,6 @@ Fonctionnalités
 
 
 
-#Members
-
-Tapsoba Jacob Evariste 
-
-Neya Moussa
-
-Some B Odilon
+# special mention 
+    pho4n1x
+    agent_XX
